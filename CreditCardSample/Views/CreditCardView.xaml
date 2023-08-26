@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Frame xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       x:Class="CreditCardSample.Views.CreditCardView"
+       HasShadow="False"
+       BorderColor="White"
+       CornerRadius="0">
+    <Grid>
+        <Frame x:Name="CardFront"
+               Grid.Row="0"
+               Grid.Column="0"
+               HasShadow="True"
+               BorderColor="Grey"
+               HorizontalOptions="Center"
+               VerticalOptions="Start"
+               WidthRequest="300"
+               HeightRequest="200"
+               CornerRadius="8"
+               Margin="40,10,40,30"
+               Padding="20">
+            <Frame.Resources>
+                <Style TargetType="Label"
+                       x:Key="HeaderLabelStyle">
+                    <Setter Property="LineBreakMode"
+                            Value="TailTruncation" />
+                    <Setter Property="FontSize"
+                            Value="12" />
+                    <Setter Property="TextColor"
+                            Value="{StaticResource HeaderLabelTextColor}" />
+                </Style>
+
+                <Style TargetType="Label"
+                       x:Key="InfoLabelStyle">
+                    <Setter Property="FontSize"
+                            Value="20" />
+                    <Setter Property="TextColor"
+                            Value="{StaticResource InfoLabelTextColor}" />
+                </Style>
+
+                <Style TargetType="Label"
+                       x:Key="CreditCardImageLabelStyle">
+                    <Setter Property="FontSize"
+                            Value="48" />
+                    <Setter Property="TextColor"
+                            Value="#FFFFFF" />
+                    <Setter Property="HorizontalOptions"
+                            Value="EndAndExpand" />
+                </Style>
+            </Frame.Resources>
+            <Grid ColumnDefinitions="*,*"
+                  ColumnSpacing="30"
+                  RowDefinitions="Auto,Auto,40,Auto,40"
+                  RowSpacing="0">
+                <Label x:Name="CreditCardImageLabel"
+                       Style="{StaticResource CreditCardImageLabelStyle}"
+                       Grid.Row="0"
+                       Grid.Column="1" />
+
+                <Label Text="Card Number"
+                       Style="{StaticResource HeaderLabelStyle}"
+                       Grid.Row="1"
+                       Grid.Column="0"
+                       Grid.ColumnSpan="2" />
+
+                <Label x:Name="CreditCardNumber"
+                       Style="{StaticResource InfoLabelStyle}"
+                       Grid.Row="2"
+                       Grid.Column="0"
+                       Grid.ColumnSpan="2" />
+
+                <Label Text="Expiration"
+                       Style="{StaticResource HeaderLabelStyle}"
+                       Grid.Row="3"
+                       Grid.Column="0" />
+
+                <Label x:Name="ExpirationDateLabel"
+                       Style="{StaticResource InfoLabelStyle}"
+                       Grid.Row="4"
+                       Grid.Column="0" />
+            </Grid>
+        </Frame>
+
+        <Frame x:Name="CardBack"
+               Grid.Row="0"
+               HasShadow="True"
+               BorderColor="Grey"
+               HorizontalOptions="Center"
+               VerticalOptions="Start"
+               WidthRequest="300"
+               HeightRequest="200"
+               CornerRadius="8"
+               Margin="40,10,40,30">
+            <Frame.Resources>
+                <Style TargetType="Label"
+                       x:Key="InfoLabelStyle">
+                    <Setter Property="FontSize"
+                            Value="20" />
+                    <Setter Property="TextColor"
+                            Value="{StaticResource InfoLabelTextColor}" />
+                </Style>
+            </Frame.Resources>
+            <StackLayout>
+                <Grid VerticalOptions="EndAndExpand">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <BoxView BackgroundColor="Grey"
+                             Grid.Column="1"
+                             WidthRequest="100"
+                             HeightRequest="40"
+                             HorizontalOptions="End"
+                             VerticalOptions="End" />
+                    <Label x:Name="CardValidationCodeLabel"
+                           Style="{StaticResource InfoLabelStyle}"
+                           Grid.Column="1"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center" />
+                </Grid>
+            </StackLayout>
+        </Frame>
+        <Frame x:Name="Streak" Grid.Row="0" BackgroundColor="#5d3623" WidthRequest="300"
+               HeightRequest="60" CornerRadius="0" HasShadow="False" VerticalOptions="Start" Margin="40">
+        </Frame>
+    </Grid>
+</Frame>
